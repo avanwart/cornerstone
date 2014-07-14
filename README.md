@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Bones
 __A Lightweight Wordpress Development Theme__
 
@@ -28,3 +29,7 @@ __[WTFPL](http://sam.zoy.org/wtfpl/)__
 
 ## Meta
 * [Changelog](../../blob/master/CHANGELOG.md)
+=======
+cornerstone
+===========
+>>>>>>> 750228752cf136d06e5404089d8d9a3ff128efc6
