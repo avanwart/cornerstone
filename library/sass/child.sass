@@ -1,0 +1,379 @@
+// variables
+$navbarHeight: 64px
+$blue: #b0dbcc
+$lightBlue: #5ebdf4
+$darkBlue: darken($lightBlue, 15%)
+$lightTeal: #8ac4c1
+$teal: #56c3a6
+$darkTeal: darken($lightTeal, 47%)
+$red: #c92139
+//$offWhite: lighten(#e1f1ea, 5%)
+$offWhite: lighten(#efefef, 5%)
+$ash: #efefef
+$black: #212121
+$babyBlue: lighten($lightBlue, 30%)
+$midGrey: #4d5052
+
+body
+	-webkit-font-smoothing: antialiased
+	font-family: 'Facit', sans-serif
+	padding-top: $navbarHeight
+	font-size: 16px
+	a
+		color: darken($lightBlue, 10%)
+	&.home
+		padding-top: 0
+		.navbar-fixed-top
+			background: rgba(0, 0, 0, .25)
+			border-bottom-color: rgba(0, 0, 0, .15)
+			&.light
+				background: rgba($offWhite, .95)
+				border-bottom-color: rgba(0, 0, 0, .15)
+				.navbar-collapse
+					.navbar-nav
+						li
+							a
+								color: rgba(0, 0, 0, .65)
+				.navbar-brand
+					color: rgba(0, 0, 0, .65)
+			.navbar-brand
+				color: white
+			.navbar-collapse
+				.navbar-nav
+					li
+						a
+							color: white
+	h1, h2, h3, h4, h5
+		font-family: 'Facit', sans-serif
+		font-weight: 600
+.btn-lg
+	border-radius: 4px
+.btn-primary
+	border-radius: 4px!important
+	background-color: $lightBlue!important
+	background-image: -webkit-linear-gradient(-90deg,$lightBlue, $darkBlue 100%)!important
+	border: 1px solid darken($darkBlue, 10%)!important
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, .35)
+	padding: 8px 24px
+	i
+		font-size: 80%
+	&.secondary
+		background-color: $teal
+		background-image: -webkit-linear-gradient(-90deg,$teal, darken($teal, 5%) 100%)
+		border-color: darken($teal, 11%)
+	&:hover
+		background: $darkBlue
+		border-color: $darkBlue
+		box-shadow: none
+.headline
+	font-size: 28px
+	text-transform: uppercase
+	text-align: center
+	font-weight: normal
+	color: rgba(0, 0, 0, .35)
+	letter-spacing: 1px
+	margin: 10px 0 40px
+	
+// header
+.navbar
+	height: $navbarHeight
+	background: rgba($offWhite, .95)
+	border-bottom-color: rgba(0, 0, 0, .08)
+	.navbar-header
+		.navbar-brand
+			padding: 0 20px
+			line-height: $navbarHeight
+			color: rgba(0, 0, 0, .65)
+	.navbar-collapse
+		.navbar-nav
+			li
+				a
+					line-height: $navbarHeight
+					padding: 0 15px
+					// color: white
+					// color: rgba(255, 255, 255, .8)
+					// text-shadow: 0px 1px 0px rgba(0, 0, 0, .25)
+					color: rgba(0, 0, 0, .65)
+					&:hover
+						color: $lightBlue
+				&.active
+					a
+						background: transparent
+						&:hover
+							color: $lightBlue
+section 
+	padding: 2em 0
+	&.pale
+		background: $babyBlue
+	&.ash
+		background: lighten($ash, 2%)
+	h1
+		@extend .headline
+		&.flat
+			margin-bottom: 10px
+	.snippet
+		text-align: center
+		font-size: 18px
+		margin-bottom: 30px
+	h2
+		text-align: center
+		color: $midGrey
+
+
+#hero
+	padding: $navbarHeight*2 0
+	box-shadow: inset 0 -1px 8px rgba(0, 0, 0, .1)
+	min-height: 680px
+	// background-image: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 90%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 120%)
+	background: url('../images/home-birth.jpg') 50% 0% no-repeat
+	background-size: cover
+	background-position: fixed
+	text-align: center
+	color: $ash
+	h1
+		font-size: 3em
+		font-weight: bold
+		text-transform: none
+		margin-bottom: 10px
+		color: $ash
+		text-shadow: 0 1px 0 rgba(0, 0, 0, .3)
+	h2
+		font-size: 1.65em
+		font-weight: normal
+		margin: 0 0 1.5em
+		line-height: 1.5
+		text-shadow: 0 1px 0 rgba(0, 0, 0, .3)
+	ul
+		margin-bottom: 30px
+		list-style-type: none
+		display: inline-block
+		li
+			font-size: 1.6em
+			margin-bottom: 10px
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .3)
+			text-align: left
+			i
+				font-size: 80%
+				margin-right: 8px
+	.btn-default
+		background: rgba(0, 0, 0, .4)
+		border-color: rgba(0, 0, 0, .2)
+		color: white
+		margin-left: 10px
+		&:hover
+			background: rgba(0, 0, 0, .55)
+			border-color: rgba(0, 0, 0, 0)
+
+#testimonials
+	background: $offWhite
+	.modal
+		.modal-content
+			border-radius: 0
+			max-height: 360px
+		.modal-body
+			padding: 0
+			iframe
+				margin-left: -1px
+		.close
+			font-weight: normal
+			text-shadow: none
+			position: absolute
+			top: -14px
+			right: -14px
+			background: #333
+			color: white
+			opacity: 1
+			width: 28px
+			height: 28px
+			border-radius: 14px
+			z-index: 10
+			&:hover
+				color: #333
+				background: white
+	i
+		color: $red
+		top: 2px
+		font-size: 70%
+	.photo
+		position: relative
+		display: inline-block
+		margin-bottom: 0px
+		&:hover
+			img
+				border-color: #777
+		a
+			width: 100%
+			height: 100%
+			background: url('../images/play-btn.gif') 94% 90% no-repeat
+			background-size: 48px 48px
+			display: block
+			position: absolute
+			opacity: .4
+			z-index: 10
+			&:hover
+				opacity: .75
+				cursor: pointer
+		img
+			height: 160px
+			width: auto
+	h2
+		font-weight: normal
+		font-size: 18px
+		margin: 0 0 20px
+	blockquote
+		display: inline-block
+		max-width: 90%
+		position: relative
+		border-radius: 2px
+		padding: 15px 20px
+		font-family: Georgia, serif
+		font-style: italic
+		color: #555
+		border: none
+		font-size: 16px
+		line-height: 1.5
+		margin: 0 0 20px 0
+		clear: both
+		small
+			margin-top: 10px
+			font-size: 105%
+
+#method
+	text-align: center
+	h1
+		margin-bottom: 20px
+		color: lighten($darkTeal, 5%)
+	h2
+		font: 24px Georgia normal 
+		// font-style: italic
+		line-height: 1.5
+		margin-bottom: 30px
+
+#faq
+	h1
+		color: lighten($darkTeal, 5%)
+
+.panel-group
+	.panel
+		margin-bottom: 1em
+		.panel-title
+			padding: 8px 0px
+			a
+				font-size: 18px
+				i
+					margin-right: 6px
+					top: 2px
+				.glyphicon-chevron-right
+					display: none
+				.glyphicon-chevron-down
+					display: inline-block
+					top: 4px
+				&.collapsed
+					.glyphicon-chevron-right
+						display: inline-block
+					.glyphicon-chevron-down
+						display: none
+#classes
+	h1
+		color: $midGrey
+		font-weight: bold
+		font-size: 40px
+		letter-spacing: 0
+		text-transform: none
+	h2
+		color: $midGrey
+		text-align: left
+		margin: 0 0 20px
+	h3
+		margin-top: 10px
+		font-weight: normal
+		color: lighten($midGrey, 20%)
+		text-transform: uppercase
+		font-size: 18px
+		letter-spacing: 1px
+
+.card
+	border: 1px solid rgba(0, 0, 0, .1)
+	background: white
+	padding: 20px
+	border-radius: 4px
+	margin-bottom: 20px
+	p
+		margin-bottom: 30px
+		&.flat
+			margin-bottom: 0
+	img
+		padding: 5px
+		border: 1px solid #dadada
+		max-width: 100%
+		height: auto
+
+.popover
+	width: 350px!important
+	max-width: 500px!important
+#signup
+	h1
+		color: $midGrey
+		font-weight: bold
+		font-size: 40px
+		letter-spacing: 0
+		text-transform: none
+	.card
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			left: -1px
+			right: -1px
+			border: 3px solid $teal
+			border-radius: 4px 4px 0 0
+			top: -3px
+		&.b
+			&:before
+				border-color: $lightBlue
+		h2
+			margin: 10px 0 30px
+			font-size: 24px
+			text-align: center
+			font-weight: normal
+		.checkbox
+			font-size: 18px
+			label
+				em
+					font-style: normal
+					position: absolute
+					right: 20px
+				span
+					color: #999
+					font-size: 14px
+					letter-spacing: 1px
+				&:hover
+					color: $lightBlue
+			&.mentorship
+				font-size: 16px
+				i
+					color: $lightBlue
+					font-size: 16px
+					top: 2px
+
+#content
+	margin-top: 0em
+	.breadcrumb
+		background: transparent
+	.card
+		h1
+			border-bottom: 1px solid $ash
+			padding: 0 0 15px 0
+			margin-bottom: 20px
+		ul
+			margin: 0 0 30px
+			li
+				margin-bottom: 10px
+			
+	.entry-content
+		padding: 0 15px
+
+
+.footer
+	margin-top: 0
+	text-align: center
