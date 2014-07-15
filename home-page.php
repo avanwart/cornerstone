@@ -136,7 +136,7 @@ Template Name: Home Page
 		</div>
 	</div>
 </section>
-<?php echo do_shortcode('[stripe payment_button_label="Buy now" name="Cornerstone Payments" description="Core Beginners Course" amount="1999" image_url="http://cornerstone:8888/wp-content/uploads/2014/07/emblem.png"]'); ?>
+<?php echo do_shortcode('[stripe payment_button_label="Buy now" name="Cornerstone Payments" description="Core Beginners Course" amount="100" image_url="http://cornerstonedoulatrainings.com/beta/wp-content/uploads/2014/07/emblem.png"]'); ?>
 <?php endwhile; endif; ?>
 <script>
 	jQuery(document).ready(function($){

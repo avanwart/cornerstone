@@ -318,8 +318,21 @@ section
 		font-size: 40px
 		letter-spacing: 0
 		text-transform: none
+	.stripe-button-el span
+		padding: 12px 24px
+		line-height: 1
+		font-family: 'Facit', sans-serif
+		height: auto
 	.card
 		position: relative
+		.ribbon
+			width: 172px
+			height: 48px
+			background: url('../images/ribbon.png') 0 0 no-repeat
+			background-size: 172px 48px
+			position: absolute
+			left: -10px
+			top: 55px
 		&:before
 			content: ''
 			position: absolute
@@ -331,6 +344,11 @@ section
 		&.b
 			&:before
 				border-color: $lightBlue
+			.checkbox
+				padding-left: 0
+			.glyphicon-ok
+				font-size: 16px
+				margin-right: 8px
 		h2
 			margin: 10px 0 30px
 			font-size: 24px
