@@ -11,12 +11,12 @@ Template Name: Home Page
 		<div class="row">
 			<div class="col-sm-12 col-lg-10 col-lg-offset-1 col-md-12">
 				<h1>The Bay Area's leader in Doula Training</h1>
-				<h2>Unparalleled, in-depth Doula Training for aspiring birth workers of all skill levels.</h2>
+				<h2>In-depth Doula Training for aspiring birth workers of all skill levels.</h2>
 				<ul>
 					<li><i class="glyphicon glyphicon-ok"></i> Full Labor and Postpartum Doula certification packages available</li>
 					<li><i class="glyphicon glyphicon-ok"></i> Intensive workshops backed by over 15 years of experience</li>
 					<li><i class="glyphicon glyphicon-ok"></i> Small group classes in a comfortable home setting</li>
-					<li><i class="glyphicon glyphicon-ok"></i> Business training included with optional extended mentorship</li>
+					<li><i class="glyphicon glyphicon-ok"></i> 1-on-1 mentorship program now available</li>
 				</ul>
 				<p class="text-center">
 					<a href="#" class="btn btn-primary btn-lg">View available courses <i class="glyphicon glyphicon-chevron-right"></i></a>
@@ -31,7 +31,7 @@ Template Name: Home Page
 		<div class="row">
 			<div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 				<h1>Our Training Method</h1>
-				<h2>Our trainings will provide you with the knowledge, confidence and hands-on skills to start attending births immediately.  Blending traditional wisdom of childbirth with current and progressive information about the physiology and psychology of childbirth, Cornerstone Doula Trainings will prepare you to help families start their lives together in the most gentle and loving way.</h2>
+				<h2>Cornerstone's mission is to help families start their lives together in the most gentle and loving way.  Our trainings will provide you with the knowledge, confidence and hands-on skills to start attending births immediately.  Our methods combine traditional wisdom of childbirth with current and progressive information about the physiology and psychology of childbirth.</h2>
 				<p class="text-center"><a class="btn btn-primary secondary" href="/case-studies">More about us &raquo;</a></p>
 			</div>
 		</div>
@@ -72,7 +72,7 @@ Template Name: Home Page
 		    		Even for me, a three time nursing mom and someone who's taken care of infants for a long time, I came away with a lot of useful information.<small>Andrea Berkey</small>
 		    	</blockquote>
 				</div>
-				<p class="text-center"><a class="btn btn-primary btn-lg" href="http://www.yelp.com/biz/cornerstone-doula-trainings-san-francisco" target="_blank">Hear more from our students &raquo;</a></p>
+				<p class="text-center"><a class="btn btn-primary" href="http://www.yelp.com/biz/cornerstone-doula-trainings-san-francisco" target="_blank">Case Studies <i class="glyphicon glyphicon-chevron-right"></i></a></p>
 	    </div>
 		</div>
 	</div>
@@ -101,7 +101,42 @@ Template Name: Home Page
 	});
 	</script>
 </section>
-<section id="faq" class="pale">
+<section id="classes" class="ash">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+				<h1 class="flat">Doula Training Classes</h1>
+				<p class="snippet">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quos ex mollitia quibusdam laudantium accusantium maxime sequi cumque omnis illum.</p>
+				<div class="row">
+					<?php
+						global $post;
+						$args = array( 'posts_per_page' => 4, 'category_name' => 'classes', 'order' => 'ASC', 'orderby' => 'title' );
+						$myposts = get_posts( $args );
+						foreach( $myposts as $post ) :  setup_postdata($post);
+					?>
+					<div class="col-sm-12 card">
+						<a href="<?php the_permalink(); ?>" class="trigger" title="More about <?php the_title(); ?>">&nbsp;</a>
+						<div class="row">
+							<div class="col-md-4">
+								<?php the_post_thumbnail('medium'); ?>
+							</div>
+							<div class="col-md-8">
+								<h2><?php the_title(); ?></h2>
+								<h3>Target Audience</h3>
+								<p><?php the_field('target_audience'); ?></p>
+								<h3>Course Overview</h3>
+								<p class="flat"><?php the_field('course_snippet'); ?> <a href="<?php the_permalink(); ?>">Read more &rarr;</a></p>
+							</div>
+						</div>
+					</div>
+					<?php endforeach; ?>
+					<?php wp_reset_postdata(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="faq">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-8 col-md-offset-2">
@@ -136,7 +171,6 @@ Template Name: Home Page
 		</div>
 	</div>
 </section>
-<?php echo do_shortcode('[stripe payment_button_label="Buy now" name="Cornerstone Payments" description="Core Beginners Course" amount="100" image_url="http://cornerstonedoulatrainings.com/beta/wp-content/uploads/2014/07/emblem.png"]'); ?>
 <?php endwhile; endif; ?>
 <script>
 	jQuery(document).ready(function($){
@@ -146,12 +180,11 @@ Template Name: Home Page
 <script src="<?php bloginfo('template_directory'); ?>/library/js/jquery.inview.min.js"></script>
 <script>
 jQuery(document).ready(function($){
-	$('#testimonials').bind('inview', function (event, visible) {
+	$('#hero').bind('inview', function (event, visible) {
     if (visible == true) {
-     $(".navbar").addClass('light');
-        
+     	$(".navbar").removeClass('light');
     } else {
-      //$(".navbar").removeClass('light');
+      $(".navbar").addClass('light');
     }
   });
 });

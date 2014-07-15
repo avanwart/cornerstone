@@ -32,6 +32,9 @@ body
 				.navbar-collapse
 					.navbar-nav
 						li
+							&.signup
+								a
+									color: white
 							a
 								color: rgba(0, 0, 0, .65)
 				.navbar-brand
@@ -87,6 +90,16 @@ body
 	.navbar-collapse
 		.navbar-nav
 			li
+				&.signup
+					a
+						@extend .btn-primary
+						line-height: 1
+						margin-top: 14px
+						padding: 9px 20px 8px
+						font-size: 15px
+						&:hover
+							background: darken($lightBlue, 10%)!important
+							border-color: darken($lightBlue, 10%)!important
 				a
 					line-height: $navbarHeight
 					padding: 0 15px
@@ -107,6 +120,11 @@ section
 		background: $babyBlue
 	&.ash
 		background: lighten($ash, 2%)
+	&.gradient
+		background-color: #0b78aa
+		background-image: -webkit-linear-gradient(top, #0d9ec2, #afd9ca)
+		background-image: linear-gradient(to bottom, #0d9ec2, #afd9ca)
+		background-size: cover
 	h1
 		@extend .headline
 		&.flat
@@ -125,7 +143,7 @@ section
 	box-shadow: inset 0 -1px 8px rgba(0, 0, 0, .1)
 	min-height: 680px
 	// background-image: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 90%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 120%)
-	background: url('../images/home-birth.jpg') 50% 0% no-repeat
+	background: url('../images/home-birth-5.jpg') 50% 0% no-repeat
 	background-size: cover
 	background-position: fixed
 	text-align: center
@@ -136,13 +154,14 @@ section
 		text-transform: none
 		margin-bottom: 10px
 		color: $ash
-		text-shadow: 0 1px 0 rgba(0, 0, 0, .3)
+		text-shadow: 0 1px 0 rgba(0, 0, 0, .9)
 	h2
 		font-size: 1.65em
 		font-weight: normal
+		color: white
 		margin: 0 0 1.5em
 		line-height: 1.5
-		text-shadow: 0 1px 0 rgba(0, 0, 0, .3)
+		text-shadow: 0 1px 0 rgba(0, 0, 0, .9)
 	ul
 		margin-bottom: 30px
 		list-style-type: none
@@ -150,7 +169,7 @@ section
 		li
 			font-size: 1.6em
 			margin-bottom: 10px
-			text-shadow: 0 1px 0 rgba(0, 0, 0, .3)
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .9)
 			text-align: left
 			i
 				font-size: 80%
@@ -191,9 +210,12 @@ section
 				color: #333
 				background: white
 	i
-		color: $red
-		top: 2px
+		top: 0px
 		font-size: 70%
+		&.glyphicon-heart
+			color: $red
+			font-size: 90%
+			top: 2px
 	.photo
 		position: relative
 		display: inline-block
@@ -291,6 +313,11 @@ section
 		text-transform: uppercase
 		font-size: 18px
 		letter-spacing: 1px
+	.card
+		&:hover
+			border-color: $midGrey
+			a.trigger
+				text-decoration: none
 
 .card
 	border: 1px solid rgba(0, 0, 0, .1)
@@ -298,6 +325,13 @@ section
 	padding: 20px
 	border-radius: 4px
 	margin-bottom: 20px
+	position: relative
+	a.trigger
+		display: block
+		position: absolute
+		width: 100%
+		height: 100%
+		z-index: 10
 	p
 		margin-bottom: 30px
 		&.flat
@@ -350,6 +384,7 @@ section
 				font-size: 16px
 				margin-right: 8px
 		h2
+			color: $midGrey!important
 			margin: 10px 0 30px
 			font-size: 24px
 			text-align: center
@@ -393,5 +428,39 @@ section
 
 
 .footer
+	border: none
+	background: $midGrey
+	color: white
 	margin-top: 0
 	text-align: center
+	ul.social-media
+		list-style-type: none
+		margin: 0 0 15px 0
+		padding: 0
+		overflow: auto
+		display: inline-block
+		li
+			float: left
+			margin: 0 10px
+			a
+				text-indent: -9999px
+				background-size: 32px 32px
+				background-repeat: no-repeat
+				width: 32px
+				height: 32px
+				display: block
+				&:hover
+					opacity: .8
+			&.facebook
+				a
+					background-image: url('../images/facebook-icon.png')
+					background-size: 15px 32px
+					background-position: center center
+			&.twitter
+				a
+					background-image: url('../images/twitter-icon.png')
+					background-position: center center
+					background-size: 32px 26px
+			&.yelp
+				a
+					background-image: url('../images/yelp-icon.png')

@@ -24,7 +24,7 @@ Template Name: Classes
 								<?php the_post_thumbnail('medium'); ?>
 							</div>
 							<div class="col-md-8">
-								<h2><a href="<?php the_permalink(); ?>" title="Course Details and Registration"><?php the_title(); ?></a></h2>
+								<h2><?php the_title(); ?></h2>
 								<h3>Target Audience</h3>
 								<p><?php the_field('target_audience'); ?></p>
 								<h3>Course Overview</h3>
