@@ -13,13 +13,13 @@ Template Name: Home Page
 				<h1>The Bay Area's leader in Doula Training</h1>
 				<h2>In-depth Doula Training for aspiring birth workers of all skill levels.</h2>
 				<ul>
-					<li><i class="glyphicon glyphicon-ok"></i> Full Labor and Postpartum Doula certification packages available</li>
+					<li><i class="glyphicon glyphicon-ok"></i> Full Labor and Postpartum Doula certification</li>
 					<li><i class="glyphicon glyphicon-ok"></i> Intensive workshops backed by over 15 years of experience</li>
 					<li><i class="glyphicon glyphicon-ok"></i> Small group classes in a comfortable home setting</li>
-					<li><i class="glyphicon glyphicon-ok"></i> 1-on-1 mentorship program now available</li>
+					<li><i class="glyphicon glyphicon-ok"></i> Business skills training included</li>
 				</ul>
 				<p class="text-center">
-					<a href="#" class="btn btn-primary btn-lg">View available courses <i class="glyphicon glyphicon-chevron-right"></i></a>
+					<a href="courses" class="btn btn-primary btn-lg">View available courses <i class="glyphicon glyphicon-chevron-right"></i></a>
 					<a href="#method" class="btn btn-default btn-lg">More about us <i class="glyphicon glyphicon-chevron-right"></i></a>
 				</p>
 			</div>
@@ -30,9 +30,9 @@ Template Name: Home Page
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-				<h1>Our Training Method</h1>
-				<h2>Cornerstone's mission is to help families start their lives together in the most gentle and loving way.  Our trainings will provide you with the knowledge, confidence and hands-on skills to start attending births immediately.  Our methods combine traditional wisdom of childbirth with current and progressive information about the physiology and psychology of childbirth.</h2>
-				<p class="text-center"><a class="btn btn-primary secondary" href="/case-studies">More about us &raquo;</a></p>
+				<h1>What makes Cornerstone unique?</h1>
+				<h2><?php the_field('training_method'); ?></h2>
+				<p class="text-center"><a class="btn btn-primary btn-lg secondary" href="meet-the-trainers">More about us <i class="glyphicon glyphicon-chevron-right"></i></a></p>
 			</div>
 		</div>
 	</div>
@@ -72,7 +72,11 @@ Template Name: Home Page
 		    		Even for me, a three time nursing mom and someone who's taken care of infants for a long time, I came away with a lot of useful information.<small>Andrea Berkey</small>
 		    	</blockquote>
 				</div>
-				<p class="text-center"><a class="btn btn-primary" href="http://www.yelp.com/biz/cornerstone-doula-trainings-san-francisco" target="_blank">Case Studies <i class="glyphicon glyphicon-chevron-right"></i></a></p>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<a class="btn btn-primary btn-lg" href="student-testimonials">Meet more students <i class="glyphicon glyphicon-chevron-right"></i></a>
+				</div>
 	    </div>
 		</div>
 	</div>
@@ -105,22 +109,22 @@ Template Name: Home Page
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-				<h1 class="flat">Doula Training Classes</h1>
-				<p class="snippet">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quos ex mollitia quibusdam laudantium accusantium maxime sequi cumque omnis illum.</p>
+				<h1 class="flat">Doula Training Courses</h1>
+				<p class="snippet"><?php the_field('classes_intro'); ?></p>
 				<div class="row">
 					<?php
 						global $post;
-						$args = array( 'posts_per_page' => 4, 'category_name' => 'classes', 'order' => 'ASC', 'orderby' => 'title' );
+						$args = array( 'posts_per_page' => 10, 'category_name' => 'courses', 'order' => 'DSC', 'orderby' => 'date' );
 						$myposts = get_posts( $args );
 						foreach( $myposts as $post ) :  setup_postdata($post);
 					?>
-					<div class="col-sm-12 card">
-						<a href="<?php the_permalink(); ?>" class="trigger" title="More about <?php the_title(); ?>">&nbsp;</a>
+					<div class="col-sm-12 card <?php the_id(); ?>">
+						<!-- <a href="<?php the_permalink(); ?>" class="trigger" title="More about <?php the_title(); ?>">&nbsp;</a> -->
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-sm-4">
 								<?php the_post_thumbnail('medium'); ?>
 							</div>
-							<div class="col-md-8">
+							<div class="col-sm-8">
 								<h2><?php the_title(); ?></h2>
 								<h3>Target Audience</h3>
 								<p><?php the_field('target_audience'); ?></p>
@@ -171,7 +175,40 @@ Template Name: Home Page
 		</div>
 	</div>
 </section>
+<section class="announcements">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+				<div class="row">
+					<div class="col-sm-12 col-md-offset-1 col-md-6 text-right">
+						<strong>Dream of becoming a midwife?</strong>  We now offer homebirth midwifery courses.<br>
+					</div>
+					<div class="col-sm-12 col-md-4 text-center">
+						<a href="http://trainingmidwives.com/?utm_source=nickiessite&utm_medium=homepagebutton&utm_campaign=cdtpromo" target="_blank" class="btn btn-lg btn-primary secondary" onclick="_gaq.push(['_trackEvent', 'Link', 'Click', 'Visited TrainingMidwives.com']);">Learn more <i class="glyphicon glyphicon-chevron-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="modal fade in promotion" id="promotion">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Doula Training Retreat in Hawaii&nbsp;&nbsp;|&nbsp;&nbsp;Summer 2015</h4>
+			</div>
+			<div class="modal-body">
+				<h2>Join us for a Summer vacation with purpose</h2>
+				<p>We have <u>2</u> spaces left for two very special people who would like to attend our Summer Hawaii Retreat on the Big Island &mdash; June 27 to July 3.</p>
+				<p class="text-center"><a href="hawaii-doula-retreat" title="View retreat page" class="btn btn-lg btn-primary">Learn more <i class="glyphicon glyphicon-chevron-right"></i></a> <button data-dismiss="modal" title="View retreat page" class="btn btn-lg btn-default">Close this window <i class="glyphicon glyphicon-chevron-right"></i></button></p>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <?php endwhile; endif; ?>
+<script src="<?php bloginfo('template_directory'); ?>/library/js/jquery.smooth-scroll.min.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/jquery.cookie.js"></script>
 <script>
 	jQuery(document).ready(function($){
 		$('#collapse1').addClass('in').parent().find('.panel-heading a').removeClass('collapsed');
@@ -180,6 +217,9 @@ Template Name: Home Page
 <script src="<?php bloginfo('template_directory'); ?>/library/js/jquery.inview.min.js"></script>
 <script>
 jQuery(document).ready(function($){
+
+	$('.7909 a').attr('href', 'http://cornerstonedoulatrainings.com/hawaii-doula-retreat');
+	
 	$('#hero').bind('inview', function (event, visible) {
     if (visible == true) {
      	$(".navbar").removeClass('light');
@@ -187,6 +227,23 @@ jQuery(document).ready(function($){
       $(".navbar").addClass('light');
     }
   });
+
+  $('.btn-default').smoothScroll({
+  	offset: -62
+  });
+
+  $.cookie('returning_user', 'true', { expires: 7, path: '/' });
+
+  if( $.cookie('returning_user') === true) {
+  	// alert('returning user')
+  } else {
+  	// alert('new user');
+  };
+
+  setTimeout(function(){
+  	//$('#promotion').modal('toggle');
+  }, 3000);
+ 
 });
 </script>
 

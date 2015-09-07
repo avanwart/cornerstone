@@ -7,14 +7,14 @@
  */
 ?>
 <?php get_header(); ?>
-
+<section id="thank-you">
 		<div class="container">
 
 			<div id="content">
 
 				<div id="inner-content" class="wrap clearfix row">
 
-						<div class="clearfix col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" role="main">
+						<div class="clearfix col-md-8 col-lg-7" role="main">
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -23,8 +23,8 @@
 
 								<header class="article-header">
 
-									<h1 class="page-title text-center" itemprop="headline"><?php the_title(); ?></h1>
-
+									<h1 class="flat page-title text-center" itemprop="headline"><?php the_title(); ?></h1>
+									<p class="snippet">A trainer will be in touch with you within 24 hours.</p>
 
 								</header> <!-- end article header -->
 
@@ -64,5 +64,5 @@
 
 			</div> <!-- end .container -->
 
-
+</section>
 <?php get_footer(); ?>

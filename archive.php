@@ -1,115 +1,36 @@
 <?php get_header(); ?>
-		
-		<div class="container">
 
-			<div id="content">
+<section id="blog" class="ash">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+				<h1 class="flat">Blog</h1>
+				<p class="snippet"><?php the_field('intro'); ?></p>
+				<div class="row">
+					<?php
+						global $post;
+						$args = array( 'posts_per_page' => 10, 'category_name' => 'blog', 'order' => 'DSC', 'orderby' => 'date' );
+						$myposts = get_posts( $args );
+						foreach( $myposts as $post ) :  setup_postdata($post);
+					?>
+					<div class="col-sm-12 card">
+						<div class="row">
+							<div class="col-sm-4 hidden-xs">
+								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+							</div>
+							<div class="col-sm-8">
+								<h2 style="text-align: left; margin-top: 0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<?php the_excerpt(); ?>
+							</div>
+						</div>
+					</div>
+					<?php endforeach; ?>
+					<?php wp_reset_postdata(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-				<div id="inner-content" class="wrap clearfix">
-
-						<div id="main" class="clearfix" role="main">
-
-							<?php if (function_exists("builder_breadcrumb_lists")) { ?>
-							<?php builder_breadcrumb_lists(); ?>
-							<?php } ?>
-
-							<?php if (is_category()) { ?>
-								<h1 class="archive-title h2">
-									<span><?php _e( 'Posts Categorized:', 'bonestheme' ); ?></span> <?php single_cat_title(); ?>
-								</h1>
-
-							<?php } elseif (is_tag()) { ?>
-								<h1 class="archive-title h2">
-									<span><?php _e( 'Posts Tagged:', 'bonestheme' ); ?></span> <?php single_tag_title(); ?>
-								</h1>
-
-							<?php } elseif (is_author()) {
-								global $post;
-								$author_id = $post->post_author;
-							?>
-								<h1 class="archive-title h2">
-
-									<span><?php _e( 'Posts By:', 'bonestheme' ); ?></span> <?php the_author_meta('display_name', $author_id); ?>
-
-								</h1>
-							<?php } elseif (is_day()) { ?>
-								<h1 class="archive-title h2">
-									<span><?php _e( 'Daily Archives:', 'bonestheme' ); ?></span> <?php the_time('l, F j, Y'); ?>
-								</h1>
-
-							<?php } elseif (is_month()) { ?>
-									<h1 class="archive-title h2">
-										<span><?php _e( 'Monthly Archives:', 'bonestheme' ); ?></span> <?php the_time('F Y'); ?>
-									</h1>
-
-							<?php } elseif (is_year()) { ?>
-									<h1 class="archive-title h2">
-										<span><?php _e( 'Yearly Archives:', 'bonestheme' ); ?></span> <?php the_time('Y'); ?>
-									</h1>
-							<?php } ?>
-
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
-
-								<header class="article-header">
-
-									<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-									<p class="byline vcard"><?php
-										printf(__( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(__( 'F jS, Y', 'bonestheme' )), bones_get_the_author_posts_link(), get_the_category_list(', '));
-									?></p>
-
-								</header> <!-- end article header -->
-
-								<section class="entry-content clearfix">
-
-									<?php the_excerpt(); ?>
-
-								</section> <!-- end article section -->
-
-								<footer class="article-footer">
-
-								</footer> <!-- end article footer -->
-
-							</article> <!-- end article -->
-
-							<?php endwhile; ?>
-
-									<?php if (function_exists("builder_numbered_pages")) { ?>
-									<?php builder_numbered_pages(); ?>
-
-									<?php } else { ?>
-										<nav>
-											<ul class="pager">
-												<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
-												<li class="next-link"><?php previous_posts_link( __( 'Newer Entries &raquo;', 'bonestheme' )) ?></li>
-											</ul>
-										</nav>
-									<?php } ?>
-
-							<?php else : ?>
-
-									<article id="post-not-found" class="hentry clearfix">
-										<header class="article-header">
-											<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-										</header>
-										<section class="entry-content">
-											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the archive.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
-
-						</div> <!-- end #main -->
-
-						<?php get_sidebar(); ?>
-
-								</div> <!-- end #inner-content -->
-
-			</div> <!-- end #content -->
-
-			</div> <!-- end .container -->
 
 <?php get_footer(); ?>
